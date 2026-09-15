@@ -37,3 +37,6 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          # Ativa o cache nativo do Docker para evitar re-fazer o npm install do zero toda vez:
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
